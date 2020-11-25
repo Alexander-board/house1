@@ -1,0 +1,25 @@
+def main():
+    x, y = 200, 400
+    high, whide = 200, 300
+    draw_house(x,y,high,whide)
+
+
+def draw_house(x, y, high, whide):
+    """
+    Рисует домик с опорной точкой в основании фундамента
+    :param x: координата опопрой точки в середине фундамента домика
+    :param y: координата опопной точки внизу фундамента
+    :param high: высота домика (общая)
+    :param whide: ширина домика (общая)
+    :return: нет
+    """
+    high_foundation = 0.05 * high
+    high_walls = 0.65 * high
+    whide_walls = 0.85 * whide
+    high_roof = high - high_walls - high_foundation
+
+   draw_foundation(x, y, high_foundation, whide_foundation)
+   draw_walls(x, y - high_foundation, high_walls, whide_walls)
+   draw_roof(x, y-(high_foundation + high_walls), high_roof, whide)
+
+main()
